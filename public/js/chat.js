@@ -14,3 +14,10 @@ const socket = io()
 socket.on('message', (mes) => {
     console.log(mes)
 })
+
+document.querySelector('#message').addEventListener('submit', (e)=> {
+    e.preventDefault();
+
+    const message =  document.querySelector('input').value
+    socket.emit('sendMessage', message)
+})
