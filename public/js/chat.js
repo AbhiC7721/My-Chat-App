@@ -2,6 +2,9 @@
 
 const socket = io()
 
+// server (emit) --> client (receive) --acknowledgement--> server
+// client (emit) --> server (receive) --acknowledgement--> client
+
 socket.on('message', (mes) => {
     console.log(mes)
 })
@@ -12,7 +15,9 @@ document.querySelector('#message').addEventListener('submit', (e)=> {
     const message =  e.target.elements.message.value
     //e.target is basically the form
 
-    socket.emit('sendMessage', message)
+    socket.emit('sendMessage', message, (message)=> {
+        console.log('The message was delivered!', message)
+    })
 })
 
 document.querySelector('#send-location').addEventListener('click', () => {
