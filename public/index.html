@@ -15,24 +15,36 @@
             </div>
             
             <div class="chat__main">
-                <div id="messages"></div>
+                <div id="messages" class="chat__messsages"></div>
 
-                <form id="message-form">
-                    <input name="message" placeholder="Message to be displayed" value="Welcome">
-                    <button>Send</button>
-                </form>
-                <button id="send-location">Send Location</button>
+                <div class="compose">
+                    <form id="message-form">
+                        <input name="message" placeholder="Message to be displayed" value="Welcome">
+                        <button>Send</button>
+                    </form>
+                    <button id="send-location">Send Location</button>
+                </div>
+
+                
             </div>
         </div>
-        
+
         <script id="message-template" type="text/html"> 
-            <div>
+            <div class="message">
+                <p>
+                    <span class="message__name">Some User Name</span>
+                    <span classs="message__meta">{{createdAt}}</span>
+                </p>
                 <p>{{createdAt}} - {{message}}</p>
             </div>
         </script>
 
         <script id="location-message-template" type="text/html"> 
-            <div>
+            <div class="message">
+                <p>
+                    <span class="message__name">Some User Name</span>
+                    <span classs="message__meta">{{createdAt}}</span>
+                </p>
                 <p> 
                     {{createdAt}} - <a href="{{url}}" target="_blank">My current location</a>
                 </p>
